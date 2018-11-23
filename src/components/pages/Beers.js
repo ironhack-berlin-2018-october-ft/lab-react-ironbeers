@@ -11,6 +11,7 @@ export default class Beers extends Component {
     }
   }
   getBeers() {
+    // Call the API and set this.state.beers (and isLoading) when we have the answer
     axios.get('https://ironbeer-api.herokuapp.com/beers/all')
     .then(response => {
       this.setState({

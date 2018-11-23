@@ -28,6 +28,7 @@ export default class RandomBeer extends Component {
     this.getBeer()
   }
   componentDidUpdate(prevProps, prevState) {
+    // We call this.getBeer() only when we have to
     if (this.state.isLoading && !prevState.isLoading) {
       this.getBeer()
     }

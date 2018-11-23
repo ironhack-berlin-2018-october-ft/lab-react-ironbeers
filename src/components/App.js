@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import {Route, Switch} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import { withRouter } from "react-router";
 import Home from './pages/Home'
 import Beers from './pages/Beers'
 import RandomBeer from './pages/RandomBeer'
 import SingleBeer from './pages/SingleBeer'
 import NewBeer from './pages/NewBeer'
 import Error404 from './pages/Error404'
-import { withRouter } from "react-router";
-
 import Header from './Header'
 
 class App extends Component {

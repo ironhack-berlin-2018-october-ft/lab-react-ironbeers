@@ -23,9 +23,11 @@ export default class NewBeer extends Component {
   handleSubmit = e => {
     // To stop the redirection
     e.preventDefault()
+
+    // Calling the API and sending a name, tagline, ... 
     axios.post('https://ironbeer-api.herokuapp.com/beers/new', {
-      name: this.state.name,
-      tagline: this.state.tagline,
+      name: this.state.name, // The name sent is this.state.name
+      tagline: this.state.tagline,  // The tagline sent is this.state.tagline
       description: this.state.description,
       first_brewed: this.state.first_brewed,
       brewers_tips: this.state.brewers_tips,
@@ -34,6 +36,7 @@ export default class NewBeer extends Component {
     })
     .then(response => {
       console.log(response.data)
+      // Reinitialise the state to empty the form
       this.setState({
         name: '',
         tagline: '',
@@ -42,8 +45,9 @@ export default class NewBeer extends Component {
         brewers_tips: '',
         attenuation_level: '',
         contributed_by: '',
-        message: response.data.message,
+        message: response.data.message, // a state.message is set to the API response
       })
+      // Remove the state message after 2 seconds
       setTimeout(() => {
         this.setState({
           message: null
@@ -87,6 +91,7 @@ export default class NewBeer extends Component {
           <button>Create 🍺</button>
         </form>
 
+        {/* A message is displayed if this.state.message is truthy */}
         {this.state.message && (
           <div style={{border: "1px solid black"}}>
             <h2>Message</h2>
